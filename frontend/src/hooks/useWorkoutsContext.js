@@ -5,7 +5,7 @@ import { useContext } from "react";
 export const useWorkoutsContext = () => {
   const context = useContext(WorkoutsContext)
   if(!context){
-    throw Error("Out of context scope")
+    throw Error("WorkoutsContext is out of context scope")
   }
 
   return context
