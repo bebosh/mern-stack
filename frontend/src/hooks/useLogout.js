@@ -1,12 +1,15 @@
 import { useAuthContext } from './useAuthContext';
+import {useWorkoutsContext} from './useWorkoutsContext'
 
 export const useLogout = () => {
   const { dispatch } = useAuthContext();
+   const { dispatch: workoutsDispatch} = useWorkoutsContext();
   const logout = () => {
     //delete mail and jwt from the server response
     localStorage.removeItem('user');
-    // update context
+    // update contexts
     dispatch({ type: 'LOGOUT' });
+    workoutsDispatch ({type:'SET_WORKOUTS', payload:null})
   };
   return { logout };
 };
